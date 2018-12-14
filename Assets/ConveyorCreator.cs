@@ -46,7 +46,7 @@ public class ConveyorCreator : MonoBehaviour {
         }
 
 
-
+        conveyorBelt.transform.position = transform.position;
     }
 	
 	// Update is called once per frame
