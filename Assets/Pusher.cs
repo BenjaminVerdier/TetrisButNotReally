@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Pusher : MonoBehaviour {
 
+    private bool push = false;
+
 	// Use this for initialization
 	void Start () {
 
 	}
 
 	void Update () {
-
-	}
+        if (push)
+        {
+            Push();
+        }
+    }
 	void OnMouseDown () {
-		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector3 dir = gameObject.transform.position - mousePos;
-		this.GetComponent<Rigidbody>().AddForce(dir.normalized * 10, ForceMode.Impulse);
+        push = true;
 	}
+
+    void OnMouseUp() {
+        push = false;
+    }
+
+    void Push() {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 dir = gameObject.transform.position - mousePos;
+        this.GetComponent<Rigidbody>().AddForce(dir.normalized * 4, ForceMode.Impulse);
+    }
 }

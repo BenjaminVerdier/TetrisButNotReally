@@ -13,9 +13,9 @@ public class TetrisPieceInvoker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey("space"))
         {
-            Instantiate(pieces[Random.Range(0, pieces.Length)], transform.position, transform.rotation);
+            Instantiate(pieces[Random.Range(0, pieces.Length)], transform.position + Random.onUnitSphere * 2, transform.rotation);
         }
     }
 }

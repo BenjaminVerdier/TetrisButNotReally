@@ -20,11 +20,17 @@ public class ConveyorCreator : MonoBehaviour {
 
         cube.transform.SetParent(conveyorBelt.transform);
 
+        GameObject otherCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        otherCube.transform.localScale = new Vector3(rolls / 2f, 0.5f, 0.5f);
+        otherCube.transform.position = new Vector3(0,0,6.5f);
+        otherCube.transform.SetParent(conveyorBelt.transform);
+
+
         for (int i = 0; i < rolls; ++i) {
             GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             Quaternion quat = cylinder.transform.rotation;
             quat.eulerAngles = new Vector3(90, 0, 0);
-            cylinder.transform.localScale = new Vector3(0.5f, 3, 0.5f);
+            cylinder.transform.localScale = new Vector3(0.4f, 3, 0.4f);
             cylinder.transform.rotation = quat;
             float x = -(rolls - 1) / 4f + i * 0.5f;
             cylinder.transform.position = new Vector3(x, 0,3.25f);
